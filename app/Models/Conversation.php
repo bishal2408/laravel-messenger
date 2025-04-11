@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Conversation extends Model
 {
@@ -15,8 +16,38 @@ class Conversation extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'user_id',
+        'user_id1',
         'user_id2',
         'last_message_id',
     ];
+
+    /**
+     * lastMessage
+     *
+     * @return BelongsTo<, $this>
+     */
+    public function lastMessage(): BelongsTo
+    {
+        return $this->belongsTo(Message::class, 'last_message_id');
+    }
+
+    /**
+     * user1
+     *
+     * @return BelongsTo<, $this>
+     */
+    public function user1(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id1');
+    }
+
+    /**
+     * user2
+     *
+     * @return BelongsTo<, $this>
+     */
+    public function user2(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id2');
+    }
 }
