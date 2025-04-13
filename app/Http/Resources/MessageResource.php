@@ -13,7 +13,7 @@ class MessageResource extends JsonResource
      * @var bool
      */
     public static $wrap = false;
-    
+
     /**
      * Transform the resource into an array.
      *
@@ -29,7 +29,7 @@ class MessageResource extends JsonResource
             'sender' => new UserResource($this->sender),
             'group_id' => $this->group_id,
             'attachments' => MessageAttachmentResource::collection($this->attachments),
-            'cretaed_at' => $this->created_at,
+            'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
     }

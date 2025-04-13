@@ -1,8 +1,6 @@
 import React from "react";
 
 const UserAvatar = ({ user, online = null, profile = false }) => {
-    console.log();
-
     let onlineClass = "";
     if (online === true) {
         onlineClass = "avatar-online";

@@ -15,9 +15,6 @@ const ChatLayout = ({ children }) => {
 
     const isUserOnline = (userId) => onlineUsers[userId];
 
-    console.log("conversations", conversations);
-    console.log("selectedConversation", selectedConversation);
-
     // in search; setting up the local conversation so that sorted conversation is not affeacted
     const onSearch = (ev) => {
         const search = ev.target.value.toLowerCase();
