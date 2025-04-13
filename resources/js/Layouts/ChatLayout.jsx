@@ -18,7 +18,7 @@ const ChatLayout = ({ children }) => {
     console.log("conversations", conversations);
     console.log("selectedConversation", selectedConversation);
 
-    // in search setting up the local conversation so that sorted conversation is not affeacted
+    // in search; setting up the local conversation so that sorted conversation is not affeacted
     const onSearch = (ev) => {
         const search = ev.target.value.toLowerCase();
         setLocalConversations(
@@ -26,7 +26,7 @@ const ChatLayout = ({ children }) => {
                 return conversation.name.toLowerCase().includes(search);
             })
         );
-    }
+    };
 
     useEffect(() => {
         setSortedConversations(
@@ -101,17 +101,16 @@ const ChatLayout = ({ children }) => {
                     selectedConversation ? "-ml-[100%]" : "sm:ml-0"
                 }`}
             >
-                <div className="flex items-center justify-between py-2 px-3 text-xl font-medium">
+                <div className="flex items-center justify-between py-2 px-3 text-xl font-medium text-gray-200">
                     My Conversations
-                </div>
-
-                <div
-                    className="tooltip tooltip-left"
-                    data-tip="Create new Group"
-                >
-                    <button className="text-gray-400 hover:text-gray-200">
-                        <PencilSquareIcon className="w-4 h-4 inline-block ml-2" />
-                    </button>
+                    <div
+                        className="tooltip tooltip-left"
+                        data-tip="Create new Group"
+                    >
+                        <button className="text-gray-400 hover:text-gray-200">
+                            <PencilSquareIcon className="w-4 h-4 inline-block ml-2" />
+                        </button>
+                    </div>
                 </div>
 
                 <div className="p-3">
